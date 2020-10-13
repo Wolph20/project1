@@ -1,0 +1,19 @@
+{% extends 'layaout.html' %}
+
+{% block body %}
+
+<div style=" font-family:sans-serif; justify-content:center; margin: 50px 0 50px 50px;">
+	<div class="container">
+		<h1 style="color: white; text-align:center; margin-bottom:50px;">Truth Table Calculator</h1>
+		<h2 style="color: white;">Insert your expression</h2>
+	</div>
+	<div class="card card-body" style="border-radius: 25px 25px 25px 25px; justify-content:center;">
+		<form action="/program" method="POST" style="padding:40px ;justify-content:center;">
+			<input type="text" name="expr" id="expr" placeholder="Expression" 
+			style="border-radius: 25px 25px 25px 25px; padding: 15px 25px; outline: none; box-sizing: border-box;">
+			<button type="submit" href="index/" style="background: #9dca34; border-radius: 25px 25px 25px 25px; padding: 15px 25px; outline: none; box-sizing: border-box;"> Calculate </button>
+		</form>
+	</div>
+</div>	
+
+{% endblock %}

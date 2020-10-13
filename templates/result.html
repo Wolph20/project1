@@ -1,0 +1,117 @@
+{% extends 'layaout.html' %}
+
+{% block body %}
+
+<h1 style="color:white; text-align:center; margin-top: 50px;"><strong>Truth Table</strong>
+</h1>
+<body style="font-family:sans-serif;
+margin:0; 
+padding:0;
+box-sizing:border-box;">
+    <div class="app-wrapper" style="width:auto; display:flex;
+    justify-content:center;
+    align-items:center;
+    ">
+    {% for val in t_val %}
+        <div class="table-wrapper" style="text-align:center; background: #03181b;
+        width:100%;
+        color:rgba(255, 255, 255, 0.836);">
+        {% for n in val['title'] %}
+            <div class="table-header" style="width:50%; display:inline-flex;
+            justify-content:center;
+            background-color:darken(tomato,10%);
+            font-size:2rem;
+            padding:15px;
+            font-weight:bold;">{{ n }}</div>
+            {% endfor %}
+            
+            <ul class="table-column" style="
+            list-style:none;
+            width:100%;">
+            {% for i in val['values'] %}
+                <li class="table-row" style="
+                background:rgb(16, 69, 104); display:block;
+                justify-content:center;
+                padding:px;
+                font-size:1.5rem;">{{ i }}</li>
+                {% endfor %}
+            </ul>
+        </div>
+        {% endfor %}
+        <div class="table-wrapper" style="text-align:center; background: #03181b;
+        width:100%;
+        color:rgba(255, 255, 255, 0.836);">
+            <div class="table-header" style="display:inline-flex;
+            justify-content:center;
+            background-color:darken(tomato,10%);
+            font-size:2rem;
+            padding:15px;
+            font-weight:bold;">{{ expr }}</div>
+            
+            <ul class="table-column" style="
+            list-style:none;
+            width:100%;">
+            {% for t in t_result %}
+                <li class="table-row" style="
+                background:rgb(16, 69, 104); display:block;
+                justify-content:center;
+                padding:px;
+                font-size:1.5rem;">{{ t }}</li>
+                {% endfor %}
+            </ul>
+        </div>
+    </div> 
+<div class="card card-body" style="margin-top:20px; border-radius: 25px 25px 25px 25px; justify-content:center;">
+    <ul class="table-column" style="
+            list-style:none;
+            width:100%; display:inline-flex;outline:#e6e7e2;">
+                <li class="table-row" style=" padding-right:60px; color: #e6e7e2;
+                padding:px;
+                font-size:1.2rem;">Is it satisfiable? : {{ satis }}</li>
+                <li class="table-row" style="padding-right:60px; color: #e6e7e2; padding:px;
+                font-size:1.2rem;">Is it a tautology? : {{ tauto }}</li>
+                <li class="table-row" style="padding-right:60px; color:#e6e7e2;
+                padding:px;
+                font-size:1.2rem;">Is it a contradiction? : {{ contra }}</li>
+                <li class="table-row" style="padding-right:60px; color:#e6e7e2;
+                padding:px;
+                font-size:1.2rem;">Is it a contingency? : {{ conti }}</li>
+    </ul>
+</div>
+<button type="submit" style="background: #9dca34; border-radius: 25px 25px 25px 25px; 
+padding: 15px 25px; outline: none; box-sizing: border-box;"><a style="color:black;" href="../"> Back </a></button>
+</body>
+
+<!-- <body style="font-family:sans-serif;
+margin:0; 
+padding:0;
+box-sizing:border-box;">
+    <div class="app-wrapper" style="display:flex;
+    justify-content:center;
+    align-items:center;
+    height:100vh;">
+        <div class="table-wrapper" style="background-color:rgb(15, 19, 78);
+        width:auto;
+        color:#fff;">
+            {% for val in t_val %}
+            <div class="table-header" style="width:50%; display:inline-flex;
+            justify-content:center;
+            background-color:darken(tomato,10%);
+            font-size:2rem;
+            padding:15px;
+            font-weight:bold;">{% for n in val['title'] %}<div style="width:100%; display:flex;"> {{ n }}{% endfor %}</div></div>
+            {% endfor %}
+            <ul class="table-column" style="
+            list-style:none;
+            width:100%;">
+            {% for val in t_val %}
+                <li class="table-row" style="
+                background:blue; display:inline-flex;
+                justify-content:center;
+                padding:15px;
+                font-size:1.5rem;">{% for i in val['values'] %}<div style="width:10%; display:inline-block;"> {{ i }}{% endfor %}</div></li>
+                {% endfor %}
+            </ul>
+        </div>
+    </div>  -->
+{% endblock %}
